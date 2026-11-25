@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+# Vendored headers, library from the host.
+cc_library(
+    name = "pipewire",
+    hdrs = glob(["**/*.h"]),
+    includes = ["."],
+    linkopts = ["-lpipewire-0.3"],
+    visibility = ["//:__subpackages__"],
+)
